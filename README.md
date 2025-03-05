@@ -28,13 +28,13 @@ Develop locally and leverage the power of your preferred IDE.
     ```
     (Make sure you have Node.js and npm installed. [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) is a great way to manage Node.js versions). Commit and push your changes to update the project.
 
-**Option 3: Quick Edits Directly in GitHub**
+**Option 2: Quick Edits Directly in GitHub**
 
 *   Navigate to the file you want to modify.
 *   Click the "Edit" (pencil) icon.
 *   Make your changes and commit them.
 
-**Option 4: GitHub Codespaces (Cloud IDE)**
+**Option 3: GitHub Codespaces (Cloud IDE)**
 
 *   Go to the main repository page.
 *   Click the green "Code" button.
