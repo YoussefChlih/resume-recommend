@@ -1,6 +1,9 @@
 
-import { Card } from "@/components/ui/card";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import { JobPosting } from "@/components/recruiter/JobPosting";
+import { JobForm, JobFormData } from "@/components/recruiter/JobForm";
+import { PlusIcon } from "lucide-react";
 
 const MOCK_JOBS = [
   {
@@ -24,11 +27,32 @@ const MOCK_JOBS = [
 ];
 
 const RecruiterJobs = () => {
+  const [jobs, setJobs] = useState(MOCK_JOBS);
+  const [showForm, setShowForm] = useState(false);
+
+  const handleSubmit = (data: JobFormData) => {
+    setJobs([...jobs, data]);
+    setShowForm(false);
+  };
+
   return (
     <div className="animate-fade-in">
-      <h1 className="font-playfair mb-8 text-3xl font-bold">Mes offres d'emploi</h1>
+      <div className="mb-8 flex items-center justify-between">
+        <h1 className="font-playfair text-3xl font-bold">Mes offres d'emploi</h1>
+        <Button onClick={() => setShowForm(!showForm)} className="flex items-center gap-2">
+          <PlusIcon className="h-4 w-4" />
+          Nouvelle offre
+        </Button>
+      </div>
+
+      {showForm && (
+        <div className="mb-8">
+          <JobForm onSubmit={handleSubmit} />
+        </div>
+      )}
+
       <div className="grid gap-6">
-        {MOCK_JOBS.map((job, index) => (
+        {jobs.map((job, index) => (
           <JobPosting key={index} {...job} />
         ))}
       </div>
